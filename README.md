@@ -2,7 +2,7 @@
 
 A roguelike dungeon crawler game built with Pygame, featuring procedurally generated levels, multiple enemy types, progressive difficulty, and a robust player stats system.
 
-[![Watch the video](https://img.youtube.com/vi/lOQLVXWYbmk/0.jpg)](https://www.youtube.com/embed/lOQLVXWYbmk?autoplay=1)
+[![Watch the video](https://img.youtube.com/vi/lOQLVXWYbmk/0.jpg)](https://youtu.be/gSwePsjVqFs?autoplay=1)
 
 ## Features
 
