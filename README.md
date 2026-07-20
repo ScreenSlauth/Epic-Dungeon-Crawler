@@ -1,103 +1,141 @@
 # Epic Dungeon Crawler
 
-A roguelike dungeon crawler game built with Pygame, featuring procedurally generated levels, multiple enemy types, progressive difficulty, and a robust player stats system.
+A roguelike dungeon crawler game built with Python and Pygame, featuring procedurally generated levels, dynamic enemy AI, progressive difficulty scaling, and comprehensive player progression systems.
 
-[![Watch the video](https://img.youtube.com/vi/lOQLVXWYbmk/0.jpg)](https://youtu.be/gSwePsjVqFs?autoplay=1)
+## Demo
+
+![Gameplay Demo](https://imgflip.com/gif/ax04cf)
 
 ## Features
 
-- **Procedurally generated dungeons** - Every playthrough is unique with random room layouts and connections
-- **Multiple biomes** - Explore different themed areas (Cavern, Forest, Ice, Lava, Shadow)
-- **Diverse enemies** - Face different enemy types with unique behaviors and AI
-- **Items and equipment** - Find and use weapons, armor, and potions
-- **Level progression** - Gain experience, level up, and unlock new abilities
-- **Quest system** - Complete quests for rewards and story progression
-- **Comprehensive player stats** - Monitor health, mana, XP, damage, defense, and more
-- **Dual UI system** - Brute force direct stat rendering alongside an advanced HUD system
-- **Dynamic lighting** - Field of view system for immersive exploration
+- **Procedurally Generated Dungeons** – Experience unique layouts and connections on each playthrough
+- **Multiple Biomes** – Explore distinct themed environments including Caverns, Forests, Icy Peaks, Lava Chambers, and Shadow Realms
+- **Dynamic Enemy AI** – Engage with diverse enemy types, each with unique behaviors and strategies
+- **Equipment System** – Discover and equip weapons, armor, and consumables to enhance your character
+- **Character Progression** – Level up your character, gain experience, and unlock new abilities
+- **Quest System** – Complete quests for rewards and story advancement
+- **Comprehensive Statistics** – Monitor and manage health, mana, experience, damage, defense, and inventory
+- **Dual UI System** – Leverages both direct stat rendering and advanced HUD for optimal reliability
+- **Field of View Mechanics** – Immersive exploration with dynamic vision-based discovery
 
 ## Installation
 
 ### Requirements
-- Python 3.7 or higher
-- Pygame 2.0.0 or higher
 
-### Steps
+- Python 3.7+
+- Pygame 2.0.0+
 
-1. Clone or download this repository
-2. Install required packages:
-```
-pip install pygame
-```
-3. Run the game:
-```
-cd dungeon_crawler
-python main.py
-```
+### Setup Instructions
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Not-Just-Pratul/Epic-Dungeon-Crawler.git
+   cd Epic-Dungeon-Crawler
+   ```
+
+2. Install dependencies:
+   ```bash
+   pip install pygame
+   ```
+
+3. Launch the game:
+   ```bash
+   cd dungeon_crawler
+   python main.py
+   ```
 
 ## Controls
 
-- **Arrow Keys / WASD**: Move the player
-- **Space**: Use item
-- **ESC**: Pause game / Open menu
+| Action | Input |
+|--------|-------|
+| Move Player | Arrow Keys / WASD |
+| Use Item | Space |
+| Pause / Menu | ESC |
 
 ## Game Mechanics
 
-### Combat
-Combat is turn-based - when you move next to an enemy, you automatically attack. The enemy will counter-attack if it survives. Damage is calculated based on your attack power, weapon bonuses, and the enemy's defense.
+### Combat System
 
-### Stats System
-The game features a comprehensive stats display showing:
-- **Health**: Current and maximum health points
-- **Mana**: Current and maximum mana points 
-- **Level & XP**: Current level and progress to the next level
-- **Attack Damage**: Calculated from base damage and equipment bonuses
-- **Defense**: Protection against enemy attacks
-- **Items**: Inventory count and equipped items
-- **Gold**: Currency for future shops
+Combat operates on a turn-based framework where proximity to enemies triggers automatic attacks. Enemies retaliate if they survive the initial encounter. Damage calculations incorporate your attack power, weapon bonuses, and the opponent's defense rating.
 
-### Items
-- **Health Potions**: Restore health
-- **Weapons**: Increase attack damage
-- **Armor**: Increase defense
-- **Gold**: Currency for future shops/upgrades
+### Player Statistics
 
-### Leveling
-Defeat enemies to gain experience points. When you reach enough XP, you'll level up, increasing your stats and potentially unlocking new abilities.
+Track your character's progression through the following metrics:
 
-### Quests
-Speak to NPCs or find quest items to receive quests. Complete objectives to earn rewards and advance the story.
+| Stat | Purpose |
+|------|---------|
+| Health | Current and maximum health points |
+| Mana | Current and maximum mana reserves |
+| Level & Experience | Current level and progress toward next rank |
+| Attack Damage | Total offensive power including equipment bonuses |
+| Defense | Damage reduction against enemy attacks |
+| Inventory | Item count and equipped gear |
+| Currency | Gold available for future transactions |
+
+### Item Categories
+
+- **Restorative Items** – Health potions for in-battle recovery
+- **Weapons** – Equipment to increase attack damage
+- **Armor** – Protective gear to enhance defense
+- **Currency** – Gold for future transactions and upgrades
+
+### Progression System
+
+Defeat enemies to accumulate experience points. Upon reaching the experience threshold, your character levels up, increasing core statistics and unlocking new abilities.
+
+### Quest Framework
+
+Engage with NPCs or discover quest objectives to initiate quests. Successfully complete quest requirements to earn rewards and advance the narrative.
 
 ## Development
 
-### Project Structure
-- **main.py**: Game entry point with the main game loop and rendering
-- **game/**: Main game modules
-  - **player.py**: Player character logic and stats management
-  - **world/dungeon.py**: Dungeon generation with biome system
-  - **entity.py**: Base class for all game entities
-  - **ui/**: User interface components including HUD and menus
-  - **sound_manager.py**: Audio handling for music and sound effects
-  - **settings.py**: Game constants and configuration
-- **assets/**: Game assets (images, sounds, music)
+### Project Architecture
 
-### Technical Notes
-- The player stats are displayed through a direct rendering system as a fallback method
-- The game implements both a traditional HUD and a brute-force stats display for reliability
-- Player data is managed through a centralized player object with accessor methods
+```
+dungeon_crawler/
+├── main.py                  # Application entry point and main game loop
+├── settings.py              # Configuration and game constants
+├── game/
+│   ├── player.py           # Player entity and statistics management
+│   ├── enemy.py            # Enemy entity implementations
+│   ├── entity.py           # Base entity class
+│   ├── item.py             # Item system and management
+│   ├── quest_manager.py    # Quest tracking and progression
+│   ├── sound_manager.py    # Audio playback and management
+│   ├── pathfinding.py      # Navigation algorithms
+│   ├── game_state.py       # Game state management
+│   ├── tile.py             # Tile definitions and properties
+│   ├── world/
+│   │   └── dungeon.py      # Procedural dungeon generation with biome support
+│   └── ui/
+│       ├── hud.py          # Heads-up display implementation
+│       └── menu.py         # Menu system
+└── assets/                 # Game resources
+    ├── images/             # Sprite sheets and textures
+    ├── sounds/             # Sound effects
+    └── music/              # Background music
+```
 
-### Future Plans
-- Expanded item system with rarities and special effects
-- More enemy types and boss battles
-- Enhanced visual effects
-- Saving/loading game progress
-- Town/hub area between dungeon runs
-- Trading and NPC interaction
+### Technical Highlights
+
+- **Dual Rendering System** – Combines direct stat rendering with an advanced HUD for maximum reliability
+- **Procedural Generation** – Sophisticated dungeon generation algorithm supporting multiple biome types
+- **Centralized State Management** – Unified player object with accessor methods for consistent data handling
+- **AI System** – Diverse enemy behaviors implemented through polymorphic entity classes
+
+### Roadmap
+
+- [ ] Enhanced item system with rarity tiers and special effects
+- [ ] Boss encounters and challenging combat scenarios
+- [ ] Advanced visual effects and particle systems
+- [ ] Save/Load game progression
+- [ ] Town hub and safe zones
+- [ ] Extended NPC interactions and trading mechanics
 
 ## Credits
 
-- Game Design & Programming: Pratul Sharma
-- Art Assets: Placeholder graphics (to be replaced)
+- **Development & Design:** Pratul Sharma
+- **Art Direction:** Placeholder assets (pending replacement)
 - Sound Effects: Placeholder sounds (to be replaced)
 
 ## License
