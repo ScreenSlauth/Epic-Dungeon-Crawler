@@ -1,31 +1,35 @@
 # Epic Dungeon Crawler
 
-A roguelike dungeon crawler game built with Python and Pygame, featuring procedurally generated levels, dynamic enemy AI, progressive difficulty scaling, and comprehensive player progression systems.
+Epic Dungeon Crawler is a polished roguelike built with Python and Pygame. Explore procedurally generated dungeons, battle varied foes, and progress through equipment, leveling, and quest systems.
 
 ## Demo
 
-![Gameplay Demo](<div style="width:360px;max-width:100%;"><div style="height:0;padding-bottom:54.17%;position:relative;"><iframe width="360" height="195" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameBorder="0" src="https://imgflip.com/embed/ax04cf"></iframe></div><p><a href="https://imgflip.com/gif/ax04cf">via Imgflip</a></p></div>)
+<div style="width:100%; max-width:100%;">
+  <a href="https://imgflip.com/gif/ax04cf">
+    <img src="https://i.imgflip.com/ax04cf.gif" alt="Gameplay Demo" style="width:100%; height:auto; display:block;" />
+  </a>
+</div>
 
 ## Features
 
-- **Procedurally Generated Dungeons** – Experience unique layouts and connections on each playthrough
-- **Multiple Biomes** – Explore distinct themed environments including Caverns, Forests, Icy Peaks, Lava Chambers, and Shadow Realms
-- **Dynamic Enemy AI** – Engage with diverse enemy types, each with unique behaviors and strategies
-- **Equipment System** – Discover and equip weapons, armor, and consumables to enhance your character
-- **Character Progression** – Level up your character, gain experience, and unlock new abilities
-- **Quest System** – Complete quests for rewards and story advancement
-- **Comprehensive Statistics** – Monitor and manage health, mana, experience, damage, defense, and inventory
-- **Dual UI System** – Leverages both direct stat rendering and advanced HUD for optimal reliability
-- **Field of View Mechanics** – Immersive exploration with dynamic vision-based discovery
+- **Procedural Dungeon Generation** – Every run creates a unique layout with randomized rooms and pathways
+- **Distinct Biomes** – Traverse Caverns, Forests, Ice Vaults, Lava Chambers, and Shadow Realms
+- **Diverse Enemy Types** – Fight enemies with different movement and combat behaviors
+- **Equipment & Items** – Acquire weapons, armor, potions, and consumables to strengthen your hero
+- **Experience & Leveling** – Gain experience, increase stats, and improve your capabilities
+- **Quest System** – Complete goals for rewards and story progression
+- **Comprehensive HUD** – Monitor health, mana, XP, attack, defense, inventory, and gold in real time
+- **Reliable UI** – Uses dual rendering for HUD and fallback direct stat display
+- **Field of View** – Explore the dungeon with vision-based reveal mechanics
 
 ## Installation
 
 ### Requirements
 
-- Python 3.7+
-- Pygame 2.0.0+
+- Python 3.7 or newer
+- Pygame 2.0.0 or newer
 
-### Setup Instructions
+### Setup
 
 1. Clone the repository:
    ```bash
@@ -38,7 +42,7 @@ A roguelike dungeon crawler game built with Python and Pygame, featuring procedu
    pip install pygame
    ```
 
-3. Launch the game:
+3. Run the game:
    ```bash
    cd dungeon_crawler
    python main.py
@@ -48,96 +52,75 @@ A roguelike dungeon crawler game built with Python and Pygame, featuring procedu
 
 | Action | Input |
 |--------|-------|
-| Move Player | Arrow Keys / WASD |
+| Move | Arrow Keys / WASD |
 | Use Item | Space |
 | Pause / Menu | ESC |
 
-## Game Mechanics
+## Gameplay Overview
 
-### Combat System
+### Combat
 
-Combat operates on a turn-based framework where proximity to enemies triggers automatic attacks. Enemies retaliate if they survive the initial encounter. Damage calculations incorporate your attack power, weapon bonuses, and the opponent's defense rating.
+Combat is triggered when the player moves adjacent to an enemy. Attacks resolve automatically, and surviving enemies counterattack based on their stats.
 
-### Player Statistics
+### Progression
 
-Track your character's progression through the following metrics:
+Defeat enemies to earn experience. Leveling up increases core stats and improves your ability to survive deeper dungeon runs.
 
-| Stat | Purpose |
-|------|---------|
-| Health | Current and maximum health points |
-| Mana | Current and maximum mana reserves |
-| Level & Experience | Current level and progress toward next rank |
-| Attack Damage | Total offensive power including equipment bonuses |
-| Defense | Damage reduction against enemy attacks |
-| Inventory | Item count and equipped gear |
-| Currency | Gold available for future transactions |
+### Items
 
-### Item Categories
+- **Health Potions** – Restore health during gameplay
+- **Weapons** – Increase attack power
+- **Armor** – Reduce damage taken
+- **Gold** – Collect currency for future upgrades
 
-- **Restorative Items** – Health potions for in-battle recovery
-- **Weapons** – Equipment to increase attack damage
-- **Armor** – Protective gear to enhance defense
-- **Currency** – Gold for future transactions and upgrades
+### Quests
 
-### Progression System
+Discover quests through NPC encounters or objective items. Completing quests rewards the player and advances the game narrative.
 
-Defeat enemies to accumulate experience points. Upon reaching the experience threshold, your character levels up, increasing core statistics and unlocking new abilities.
-
-### Quest Framework
-
-Engage with NPCs or discover quest objectives to initiate quests. Successfully complete quest requirements to earn rewards and advance the narrative.
-
-## Development
-
-### Project Architecture
+## Project Structure
 
 ```
 dungeon_crawler/
-├── main.py                  # Application entry point and main game loop
-├── settings.py              # Configuration and game constants
+├── main.py                  # Game entry point and main loop
+├── settings.py              # Game configuration and constants
 ├── game/
-│   ├── player.py           # Player entity and statistics management
-│   ├── enemy.py            # Enemy entity implementations
-│   ├── entity.py           # Base entity class
-│   ├── item.py             # Item system and management
-│   ├── quest_manager.py    # Quest tracking and progression
-│   ├── sound_manager.py    # Audio playback and management
-│   ├── pathfinding.py      # Navigation algorithms
-│   ├── game_state.py       # Game state management
-│   ├── tile.py             # Tile definitions and properties
+│   ├── player.py            # Player character and stats management
+│   ├── enemy.py             # Enemy behavior and combat logic
+│   ├── entity.py            # Base entity definitions
+│   ├── item.py              # Item systems and inventory handling
+│   ├── quest_manager.py     # Quest progression and tracking
+│   ├── sound_manager.py     # Audio playback and effects handling
+│   ├── pathfinding.py       # Navigation and AI movement logic
+│   ├── game_state.py        # Game state flow and management
+│   ├── tile.py              # Tile definitions and map logic
 │   ├── world/
-│   │   └── dungeon.py      # Procedural dungeon generation with biome support
+│   │   └── dungeon.py       # Procedural world generation
 │   └── ui/
-│       ├── hud.py          # Heads-up display implementation
-│       └── menu.py         # Menu system
-└── assets/                 # Game resources
-    ├── images/             # Sprite sheets and textures
-    ├── sounds/             # Sound effects
-    └── music/              # Background music
+│       ├── hud.py           # Heads-up display rendering
+│       └── menu.py          # Menu screens and user input
+└── assets/
+    ├── images/              # Sprites and visual assets
+    ├── sounds/              # Sound effects
+    └── music/               # Background audio
 ```
 
-### Technical Highlights
+## Technical Highlights
 
-- **Dual Rendering System** – Combines direct stat rendering with an advanced HUD for maximum reliability
-- **Procedural Generation** – Sophisticated dungeon generation algorithm supporting multiple biome types
-- **Centralized State Management** – Unified player object with accessor methods for consistent data handling
-- **AI System** – Diverse enemy behaviors implemented through polymorphic entity classes
+- **Reliable HUD** – Structured UI rendering with fallback stat display
+- **Procedural Generation** – Multi-biome dungeon generation for replay value
+- **Centralized State** – Unified player and game state management
+- **Modular AI** – Flexible enemy behavior implemented through entity classes
 
-### Roadmap
+## Roadmap
 
-- [ ] Enhanced item system with rarity tiers and special effects
-- [ ] Boss encounters and challenging combat scenarios
-- [ ] Advanced visual effects and particle systems
-- [ ] Save/Load game progression
-- [ ] Town hub and safe zones
-- [ ] Extended NPC interactions and trading mechanics
+- [ ] Add item rarity tiers and special equipment effects
+- [ ] Introduce boss encounters and elite enemies
+- [ ] Enhance visuals with particle effects and lighting
+- [ ] Add save/load support
+- [ ] Implement a hub area and safe zones
+- [ ] Expand NPC interactions and trading
 
 ## Credits
 
 - **Development & Design:** Pratul Sharma
-- **Art Direction:** Placeholder assets (pending replacement)
-- Sound Effects: Placeholder sounds (to be replaced)
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details. 
+- **Assets:** Placeholder art and audio
